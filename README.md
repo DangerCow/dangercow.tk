@@ -1,2 +1,2 @@
-#The offical DangerCow website
+# The offical DangerCow website
 this is currently under heavy development
