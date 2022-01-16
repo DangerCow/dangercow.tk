@@ -5,13 +5,13 @@ class HelloMessage extends React.Component {
   render() {
     return (
       <div>
-        Hello world!!!!
+        Hello world..
       </div>
     );
   }
 }
 
 ReactDOM.render(
-  <HelloMessage name="Taylor" />,
+  <HelloMessage name="" />,
   document.getElementById('root')
 );
