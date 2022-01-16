@@ -1,3 +1,3 @@
 var ghpages = require('gh-pages');
 
-ghpages.publish('build', {add: true}, callback);
+ghpages.publish('build', {add: true}, function(err) {});

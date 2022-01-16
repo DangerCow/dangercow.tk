@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/dangercow.tk/static/js/main.ecbea573.js",
+    "main.js": "/dangercow.tk/static/js/main.d3aca39c.js",
     "index.html": "/dangercow.tk/index.html",
-    "main.ecbea573.js.map": "/dangercow.tk/static/js/main.ecbea573.js.map"
+    "main.d3aca39c.js.map": "/dangercow.tk/static/js/main.d3aca39c.js.map"
   },
   "entrypoints": [
-    "static/js/main.ecbea573.js"
+    "static/js/main.d3aca39c.js"
   ]
 }
