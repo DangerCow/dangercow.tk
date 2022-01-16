@@ -5,7 +5,7 @@ class HelloMessage extends React.Component {
   render() {
     return (
       <div>
-        Hello {this.props.name}
+        Hello world
       </div>
     );
   }
@@ -13,5 +13,5 @@ class HelloMessage extends React.Component {
 
 ReactDOM.render(
   <HelloMessage name="Taylor" />,
-  document.getElementById('hello-example')
+  document.getElementById('root')
 );
