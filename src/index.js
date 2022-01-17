@@ -8,9 +8,10 @@ var canvas
 class SketchWindow extends React.Component{
   constructor(props){
     super(props)
-    this.myRef = React.createRef()
+    this.SketchRef = React.createRef()
   }
 
+  //Animated background
   Sketch = (p) => {
     let points = []
 
@@ -19,7 +20,7 @@ class SketchWindow extends React.Component{
 
     let t = 0
     let drawTimer = 0;
-    let drawTimerLength = 2;
+    let drawTimerLength = 1;
     let noiseScale = 4;
 
     p.windowResized = () => {
@@ -32,6 +33,7 @@ class SketchWindow extends React.Component{
       canvas = p.createCanvas(p.windowWidth, p.windowHeight)
       canvas.position(0, 0)
       canvas.style('z-index', '-1')
+      p.frameRate(60)
     }
 
     p.draw = () => {
@@ -39,6 +41,9 @@ class SketchWindow extends React.Component{
       let colorB = p.color(252, 188, 184);
       let color = p.lerpColor(colorA, colorB, (p.sin(t) + 1) / 2)
       p.background(color)
+
+      //if array gets too big reset
+      if(points.length >= 400) points = []
 
       //move xy
       p.noiseDetail(2, 0.2)
@@ -66,26 +71,37 @@ class SketchWindow extends React.Component{
         let point = currentPoint
 
         if(i != points.length) point = points[i]
+
+        let cos = p.cos(t) * 100
         
-        p.stroke(p.lerpColor(colorA, colorB, (p.sin(t * -1) + 1) / 2))
-        p.strokeWeight(p.abs(p.sin(t)) * 4)
+        colorA = p.color(152 - cos, 255 - cos, 152 - cos);
+        colorB = p.color(252 - cos, 188 - cos, 184 - cos);
+
+        let strokeColor = p.lerpColor(colorA, colorB, (p.sin(t * -1) + 1) / 2)
+        strokeColor.r -= cos * 100
+        p.stroke(strokeColor)
+        p.strokeWeight((p.abs(p.sin(t)) * 4) + 1)
         p.line(lastPoint[0], lastPoint[1], point[0], point[1])
       }
 
       drawTimer += 1
-      t += 0.01
+      console.log(p.deltaTime)
+      t += p.deltaTime / 2500
     }
   }
 
+  //Mount background onto html
   componentDidMount() {
-    this.myP5 = new p5(this.Sketch, this.myRef.current)
+    this.P5Sketch = new p5(this.Sketch, this.SketchRef.current)
   }
 
+  //Render comp
   render() {
     return (
-      <div ref = {this.myRef}>
+      <div ref = {this.SketchRef}>
         <div className = 'Center'>
           <h1>DANGER COW</h1>
+          
           <p>Website under construction :)</p>
         </div>
       </div>
@@ -93,6 +109,7 @@ class SketchWindow extends React.Component{
   }
 }
 
+//render page
 ReactDOM.render(
   <SketchWindow name="" />,
   document.getElementById('root')
