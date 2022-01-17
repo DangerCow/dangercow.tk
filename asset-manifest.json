@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/dangercow.tk/static/css/main.b4c769f6.css",
-    "main.js": "/dangercow.tk/static/js/main.7da815c1.js",
+    "main.js": "/dangercow.tk/static/js/main.94cd13e7.js",
     "index.html": "/dangercow.tk/index.html",
     "main.b4c769f6.css.map": "/dangercow.tk/static/css/main.b4c769f6.css.map",
-    "main.7da815c1.js.map": "/dangercow.tk/static/js/main.7da815c1.js.map"
+    "main.94cd13e7.js.map": "/dangercow.tk/static/js/main.94cd13e7.js.map"
   },
   "entrypoints": [
     "static/css/main.b4c769f6.css",
-    "static/js/main.7da815c1.js"
+    "static/js/main.94cd13e7.js"
   ]
 }
