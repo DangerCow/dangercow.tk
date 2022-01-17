@@ -102,7 +102,7 @@ class SketchWindow extends React.Component{
         <div className = 'Center'>
           <h1>DANGER COW</h1>
           
-          <p>Website under construction :)</p>
+          <p>Website under construction :) :)</p>
         </div>
       </div>
     )
