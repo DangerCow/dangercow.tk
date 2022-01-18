@@ -43,7 +43,7 @@ class SketchWindow extends React.Component{
       p.background(color)
 
       //if array gets too big reset
-      if(points.length >= 400) points = []
+      if(points.length >= 800) points = []
 
       //move xy
       p.noiseDetail(2, 0.2)
@@ -51,8 +51,8 @@ class SketchWindow extends React.Component{
       let noiseX = p.noise(t * noiseScale, 0)
       let noiseY = p.noise(0, t * noiseScale)
 
-      x = p.sin(noiseX * 2) * p.windowWidth
-      y = p.sin(noiseY * 2) * p.windowHeight
+      x = p.lerp(p.sin(noiseX * 2) * p.windowWidth, x, .9)
+      y = p.lerp(p.sin(noiseY * 2) * p.windowHeight, y, .9)
 
       let currentPoint = [x, y]
 
