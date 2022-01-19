@@ -1,17 +1,55 @@
 .Center {
-    text-align: center;
+	text-align: center;
+}
+
+.RoutingButton {
+	background-color: #ffa69e;
+	border: none;
+	padding: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-decoration: none;
+	border-radius: 20px;
+
+	/* font */
+	font-family: "Nunito", sans-serif;
+	font-size: 500%;
+	color: #09e85e;
+}
+
+.SlideDown {
+	animation-duration: 2s;
+	animation-name: slidedown;
+	animation-timing-function: ease-out;
+}
+
+#RoutingButtons {
+	margin-top: 4%;
 }
 
 h1 {
-    margin: 0;
-    padding-top: 0;
-    font-family: 'Roboto', sans-serif;
-    font-size: 10vw;
+	margin: 0;
+	padding-top: 0;
+	font-family: "Roboto", sans-serif;
+	font-size: 10vw;
 }
 
 p {
-    margin: 0;
-    padding-top: 0;
-    font-family: 'Nunito', sans-serif;
-    font-size: 3vw;
+	margin: 0;
+	padding-top: 0;
+	font-family: "Nunito", sans-serif;
+	font-size: 3vw;
+	font-weight: bold;
+}
+
+@keyframes slidedown {
+	from {
+		margin-top: -50%;
+		height: 100%;
+	}
+
+	to {
+		margin-top: 0%;
+		height: 100%;
+	}
 }
