@@ -1,0 +1,12 @@
+.norm {
+	background-image: url("normal.jpg");
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+
+	filter: invert(100%);
+}
+.normInvert {
+	background-image: url("normal.jpg");
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}

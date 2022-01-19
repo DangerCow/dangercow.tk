@@ -5,6 +5,7 @@ import styles from "./styles.css";
 import { Sketch } from "./indexAssets/indexVisual.js";
 import { SubtitleAnim } from "./indexAssets/indexSubtitleAnim.js";
 import { RoutingButtons } from "./indexAssets/indexRoutingButtons.js";
+import { WhatsNowPage } from "./now.js";
 
 let routes;
 function switchPage(page) {
@@ -72,7 +73,7 @@ routes = [
 	},
 	{
 		dir: "/now",
-		comps: <p>hi</p>,
+		comps: [<WhatsNowPage name="" />],
 	},
 ];
 

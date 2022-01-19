@@ -33,12 +33,27 @@ h1 {
 	font-family: "Roboto", sans-serif;
 	font-size: 10vw;
 }
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap");
+h2 {
+	margin: 0;
+	padding-top: 0;
+	font-family: "Mukta", sans-serif;
+	font-size: 3rem;
+}
 
 p {
 	margin: 0;
 	padding-top: 0;
 	font-family: "Nunito", sans-serif;
-	font-size: 3vw;
+	font-size: 2.5vw;
+	font-weight: bold;
+}
+
+a {
+	margin: 0;
+	padding-top: 0;
+	font-family: "Nunito", sans-serif;
+	font-size: 2.5vw;
 	font-weight: bold;
 }
 

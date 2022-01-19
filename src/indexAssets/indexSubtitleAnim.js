@@ -30,7 +30,7 @@ export class SubtitleAnim extends React.Component {
 
 	render() {
 		let autoMargin = {
-			marginRight: this.state.noway.length * 1.55 + "vw",
+			marginRight: this.state.noway.length * 1.29 + "vw",
 		};
 
 		return (
