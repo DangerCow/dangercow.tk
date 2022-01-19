@@ -1,19 +1,62 @@
-import React from "react";
-import p5 from "p5";
+import React, { useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import styles from "./styles.css";
 import nowStyles from "./nowAssets/nowStyles.css";
-import { Sketch } from "./nowAssets/nowBackground";
+import { Canvas, useFrame } from "@react-three/fiber";
+import FullScreen from "react-fullscreen";
+
+let t = 0;
+
+function Box(props) {
+	const mesh = useRef();
+
+	useFrame((state, delta) => {
+		t++;
+
+		mesh.current.rotation.x += 0.01;
+		mesh.current.rotation.y += 0.005;
+
+		state.camera.lookAt(0, 0, 0);
+		state.camera.position.x = Math.sin(t / 400) * 10;
+		state.camera.position.z = Math.sin(t / 100) * 10 + 4;
+	});
+
+	return (
+		<mesh {...props} ref={mesh} scale={(1, 1, 1)}>
+			<boxGeometry args={[1, 1, 1]} />
+			<meshStandardMaterial color="green" />
+		</mesh>
+	);
+}
+
+class VisCanvas extends React.Component {
+	render() {
+		return (
+			<Canvas
+				camera={{ position: [0, 0, 0], fov: 10 }}
+				style={{
+					width: this.props.width,
+					height: this.props.height,
+					position: "absolute",
+					left: "0px",
+					top: "0px",
+					zIndex: -1,
+				}}
+			>
+				<Box position={[0, 0, 0]} />
+				<ambientLight />
+				<pointLight position={[10, 10, 10]} color="red" power={40} />
+			</Canvas>
+		);
+	}
+}
 
 export class WhatsNowPage extends React.Component {
 	constructor(props) {
 		super(props);
-		this.SketchRef = React.createRef();
 	}
 
-	componentDidMount() {
-		this.P5Sketch = new p5(Sketch, this.SketchRef.current);
-	}
+	componentDidMount() {}
 
 	render() {
 		return [
@@ -38,7 +81,9 @@ export class WhatsNowPage extends React.Component {
 					More about "now" pages
 				</a>
 			</div>,
-			<div ref={this.SketchRef}></div>,
+			<FullScreen>
+				<VisCanvas />
+			</FullScreen>,
 		];
 	}
 }
