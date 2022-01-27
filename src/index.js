@@ -6,6 +6,7 @@ import { Sketch } from "./indexAssets/indexVisual.js";
 import { SubtitleAnim } from "./indexAssets/indexSubtitleAnim.js";
 import { RoutingButtons } from "./indexAssets/indexRoutingButtons.js";
 import { WhatsNowPage } from "./now.js";
+import { NoPage } from "./404.js";
 
 let routes;
 function switchPage(page) {
@@ -18,13 +19,17 @@ class Website extends React.Component {
 	}
 
 	render() {
+		let page = <NoPage />;
+
 		for (let i = 0; i < routes.length; i++) {
 			const route = routes[i];
 
-			if (window.location.pathname == route.dir) return route.comps;
+			if (window.location.pathname == route.dir) {
+				page = route.comps;
+			}
 		}
 
-		return "404 page not found :(";
+		return page;
 	}
 }
 
